@@ -7,4 +7,5 @@
 
 ## 해결 방법
 
-?
+1. app_id 키젠 제작
+2. app_id 사용하는 API를 모두 [직접 제작한 RESTFul API 서버로 교체](https://github.com/organization/OpenDC-RESTFul-API-Server)
