@@ -1,2 +1,4 @@
 include ':app'
 rootProject.name='OpenDC'
+include ':KotlinInside'
+project(':KotlinInside').projectDir = new File(settingsDir, '../KotlinInside')
