@@ -1,0 +1,4 @@
+[submodule "KotlinInside"]
+	path = KotlinInside
+	url = https://github.com/organization/KotlinInside.git
+	branch = master
