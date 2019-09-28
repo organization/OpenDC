@@ -1,7 +1,7 @@
 package be.zvz.opendc.http
 
-import be.zvz.kotlininside.httpinterface.HttpException
-import be.zvz.kotlininside.httpinterface.HttpInterface
+import be.zvz.kotlininside.http.HttpException
+import be.zvz.kotlininside.http.HttpInterface
 import be.zvz.kotlininside.json.JsonBrowser
 import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
