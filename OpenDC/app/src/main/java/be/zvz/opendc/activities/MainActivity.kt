@@ -7,8 +7,10 @@ import com.lapism.search.widget.SearchView
 import com.jacksonandroidnetworking.JacksonParserFactory
 import com.androidnetworking.AndroidNetworking
 import be.zvz.kotlininside.KotlinInside
+import be.zvz.kotlininside.session.user.Anonymous
 import be.zvz.opendc.http.FANHttpInterface
-
+import com.androidnetworking.interceptors.GzipRequestInterceptor
+import okhttp3.OkHttpClient
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +20,13 @@ class MainActivity : AppCompatActivity() {
 
         val totalSearchView = findViewById<SearchView>(R.id.totalSearchView)
 
-        AndroidNetworking.initialize(applicationContext)
+        val okHttpClient = OkHttpClient().newBuilder()
+            .addInterceptor(GzipRequestInterceptor())
+            .build()
+
+        AndroidNetworking.initialize(applicationContext, okHttpClient)
         AndroidNetworking.setParserFactory(JacksonParserFactory())
 
-        val kotlinInside = KotlinInside(FANHttpInterface())
+        KotlinInside.createInstance(Anonymous("ㅇㅇ", "1234"), FANHttpInterface())
     }
 }

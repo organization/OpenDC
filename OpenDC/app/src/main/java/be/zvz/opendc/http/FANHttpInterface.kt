@@ -21,6 +21,10 @@ class FANHttpInterface : HttpInterface {
                 .addMultipartFile(it.multipartFile, it.multipartContentType)
                 .addMultipartFileList(it.multipartFileList, it.multipartContentType)
                 .addMultipartParameter(it.multipartParameter, it.multipartContentType)
+
+            it.userAgent?.let { userAgent ->
+                request.setUserAgent(userAgent)
+            }
         }
 
         var json: JsonBrowser? = null
@@ -49,6 +53,10 @@ class FANHttpInterface : HttpInterface {
             request.addQueryParameter(it.queryParameter)
                 .addPathParameter(it.pathParameter)
                 .addHeaders(it.headers)
+
+            it.userAgent?.let { userAgent ->
+                request.setUserAgent(userAgent)
+            }
         }
 
         var json: JsonBrowser? = null
@@ -77,6 +85,10 @@ class FANHttpInterface : HttpInterface {
             request.addQueryParameter(it.queryParameter)
                 .addPathParameter(it.pathParameter)
                 .addHeaders(it.headers)
+
+            it.userAgent?.let { userAgent ->
+                request.setUserAgent(userAgent)
+            }
         }
 
         var json: JsonBrowser? = null
@@ -105,6 +117,10 @@ class FANHttpInterface : HttpInterface {
             request.addQueryParameter(it.queryParameter)
                 .addPathParameter(it.pathParameter)
                 .addHeaders(it.headers)
+
+            it.userAgent?.let { userAgent ->
+                request.setUserAgent(userAgent)
+            }
         }
 
         var json: JsonBrowser? = null
@@ -133,6 +149,10 @@ class FANHttpInterface : HttpInterface {
             request.addQueryParameter(it.queryParameter)
                 .addPathParameter(it.pathParameter)
                 .addHeaders(it.headers)
+
+            it.userAgent?.let { userAgent ->
+                request.setUserAgent(userAgent)
+            }
         }
 
         var json: JsonBrowser? = null
@@ -161,6 +181,10 @@ class FANHttpInterface : HttpInterface {
             request.addQueryParameter(it.queryParameter)
                 .addPathParameter(it.pathParameter)
                 .addHeaders(it.headers)
+
+            it.userAgent?.let { userAgent ->
+                request.setUserAgent(userAgent)
+            }
         }
 
         var json: JsonBrowser? = null
@@ -189,6 +213,10 @@ class FANHttpInterface : HttpInterface {
             request.addQueryParameter(it.queryParameter)
                 .addPathParameter(it.pathParameter)
                 .addHeaders(it.headers)
+
+            it.userAgent?.let { userAgent ->
+                request.setUserAgent(userAgent)
+            }
         }
 
         var json: JsonBrowser? = null
