@@ -18,9 +18,9 @@ class FANHttpInterface : HttpInterface {
             request.addQueryParameter(it.queryParameter)
                 .addPathParameter(it.pathParameter)
                 .addHeaders(it.headers)
+                .addMultipartParameter(it.multipartParameter, it.multipartContentType)
                 .addMultipartFile(it.multipartFile, it.multipartContentType)
                 .addMultipartFileList(it.multipartFileList, it.multipartContentType)
-                .addMultipartParameter(it.multipartParameter, it.multipartContentType)
 
             it.userAgent?.let { userAgent ->
                 request.setUserAgent(userAgent)

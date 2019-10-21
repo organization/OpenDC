@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         val totalSearchView = findViewById<SearchView>(R.id.totalSearchView)
 
         val okHttpClient = OkHttpClient().newBuilder()
+            .followRedirects(true)
+            .followSslRedirects(true)
             .addInterceptor(GzipRequestInterceptor())
             .build()
 
