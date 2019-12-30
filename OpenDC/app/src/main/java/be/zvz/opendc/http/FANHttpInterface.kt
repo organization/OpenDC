@@ -1,11 +1,10 @@
 package be.zvz.opendc.http
 
+import android.util.Log
 import be.zvz.kotlininside.http.HttpException
 import be.zvz.kotlininside.http.HttpInterface
 import be.zvz.kotlininside.json.JsonBrowser
 import com.androidnetworking.AndroidNetworking
-import com.androidnetworking.error.ANError
-import com.androidnetworking.interfaces.StringRequestListener
 
 class FANHttpInterface : HttpInterface {
     override fun upload(
@@ -27,20 +26,15 @@ class FANHttpInterface : HttpInterface {
             }
         }
 
-        var json: JsonBrowser? = null
+        val requestResult = request.build().executeForString()
 
-        request.build()
-            .getAsString(object : StringRequestListener {
-                override fun onResponse(response: String?) {
-                    json = JsonBrowser.parse(response)
-                }
-
-                override fun onError(anError: ANError?) {
-                    throw HttpException(anError!!.errorCode, anError.response.message())
-                }
-
-            })
-        return json
+        if (requestResult.isSuccess) {
+            val result = requestResult.result.toString()
+            Log.d("OpenDC", result)
+            return JsonBrowser.parse(result)
+        } else {
+            throw HttpException(requestResult.error)
+        }
     }
 
     override fun get(
@@ -59,20 +53,13 @@ class FANHttpInterface : HttpInterface {
             }
         }
 
-        var json: JsonBrowser? = null
+        val requestResult = request.build().executeForString()
 
-        request.build()
-            .getAsString(object : StringRequestListener {
-                override fun onResponse(response: String?) {
-                    json = JsonBrowser.parse(response)
-                }
-
-                override fun onError(anError: ANError?) {
-                    throw HttpException(anError!!.errorCode, anError.response.message())
-                }
-
-            })
-        return json
+        if (requestResult.isSuccess) {
+            return JsonBrowser.parse(requestResult.result.toString())
+        } else {
+            throw HttpException(requestResult.error)
+        }
     }
 
     override fun post(
@@ -91,20 +78,13 @@ class FANHttpInterface : HttpInterface {
             }
         }
 
-        var json: JsonBrowser? = null
+        val requestResult = request.build().executeForString()
 
-        request.build()
-            .getAsString(object : StringRequestListener {
-                override fun onResponse(response: String?) {
-                    json = JsonBrowser.parse(response)
-                }
-
-                override fun onError(anError: ANError?) {
-                    throw HttpException(anError!!.errorCode, anError.response.message())
-                }
-
-            })
-        return json
+        if (requestResult.isSuccess) {
+            return JsonBrowser.parse(requestResult.result.toString())
+        } else {
+            throw HttpException(requestResult.error)
+        }
     }
 
     override fun delete(
@@ -123,20 +103,13 @@ class FANHttpInterface : HttpInterface {
             }
         }
 
-        var json: JsonBrowser? = null
+        val requestResult = request.build().executeForString()
 
-        request.build()
-            .getAsString(object : StringRequestListener {
-                override fun onResponse(response: String?) {
-                    json = JsonBrowser.parse(response)
-                }
-
-                override fun onError(anError: ANError?) {
-                    throw HttpException(anError!!.errorCode, anError.response.message())
-                }
-
-            })
-        return json
+        if (requestResult.isSuccess) {
+            return JsonBrowser.parse(requestResult.result.toString())
+        } else {
+            throw HttpException(requestResult.error)
+        }
     }
 
     override fun head(
@@ -155,20 +128,13 @@ class FANHttpInterface : HttpInterface {
             }
         }
 
-        var json: JsonBrowser? = null
+        val requestResult = request.build().executeForString()
 
-        request.build()
-            .getAsString(object : StringRequestListener {
-                override fun onResponse(response: String?) {
-                    json = JsonBrowser.parse(response)
-                }
-
-                override fun onError(anError: ANError?) {
-                    throw HttpException(anError!!.errorCode, anError.response.message())
-                }
-
-            })
-        return json
+        if (requestResult.isSuccess) {
+            return JsonBrowser.parse(requestResult.result.toString())
+        } else {
+            throw HttpException(requestResult.error)
+        }
     }
 
     override fun put(
@@ -187,20 +153,13 @@ class FANHttpInterface : HttpInterface {
             }
         }
 
-        var json: JsonBrowser? = null
+        val requestResult = request.build().executeForString()
 
-        request.build()
-            .getAsString(object : StringRequestListener {
-                override fun onResponse(response: String?) {
-                    json = JsonBrowser.parse(response)
-                }
-
-                override fun onError(anError: ANError?) {
-                    throw HttpException(anError!!.errorCode, anError.response.message())
-                }
-
-            })
-        return json
+        if (requestResult.isSuccess) {
+            return JsonBrowser.parse(requestResult.result.toString())
+        } else {
+            throw HttpException(requestResult.error)
+        }
     }
 
     override fun patch(
@@ -219,20 +178,13 @@ class FANHttpInterface : HttpInterface {
             }
         }
 
-        var json: JsonBrowser? = null
+        val requestResult = request.build().executeForString()
 
-        request.build()
-            .getAsString(object : StringRequestListener {
-                override fun onResponse(response: String?) {
-                    json = JsonBrowser.parse(response)
-                }
-
-                override fun onError(anError: ANError?) {
-                    throw HttpException(anError!!.errorCode, anError.response.message())
-                }
-
-            })
-        return json
+        if (requestResult.isSuccess) {
+            return JsonBrowser.parse(requestResult.result.toString())
+        } else {
+            throw HttpException(requestResult.error)
+        }
     }
 
 }

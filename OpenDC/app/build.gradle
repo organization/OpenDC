@@ -17,7 +17,7 @@ repositories {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     buildToolsVersion "29.0.2"
 
     compileOptions {
@@ -28,7 +28,7 @@ android {
     defaultConfig {
         applicationId "be.zvz.opendc"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -43,7 +43,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation project(":KotlinInside")
+    implementation group: 'be.zvz', name: 'KotlinInside', version: '1.7.2'
 
     implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: "${kotlin_version}"
 
@@ -56,11 +56,11 @@ dependencies {
     implementation group: 'com.amitshekhar.android', name: 'android-networking', version:'1.0.2'
     //FAN Jackson
     implementation group: 'com.amitshekhar.android', name: 'jackson-android-networking', version:'1.0.2'
-    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.3'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.4'
     implementation group: 'org.mozilla.geckoview', name: "geckoview-${geckoviewChannel}", version: "${geckoviewVersion}"
 
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     androidTestImplementation group: 'androidx.test', name: 'runner', version: '1.2.0'
     androidTestImplementation group: 'androidx.test.espresso', name: 'espresso-core', version: '3.2.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }
