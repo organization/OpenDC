@@ -5,6 +5,10 @@ import be.zvz.kotlininside.http.HttpException
 import be.zvz.kotlininside.http.HttpInterface
 import be.zvz.kotlininside.json.JsonBrowser
 import com.androidnetworking.AndroidNetworking
+import org.mozilla.gecko.util.IOUtils
+import java.io.BufferedOutputStream
+import java.io.File
+import java.io.FileOutputStream
 
 class FANHttpInterface : HttpInterface {
     override fun upload(
@@ -17,9 +21,34 @@ class FANHttpInterface : HttpInterface {
             request.addQueryParameter(it.queryParameter)
                 .addPathParameter(it.pathParameter)
                 .addHeaders(it.headers)
-                .addMultipartParameter(it.multipartParameter, it.multipartContentType)
-                .addMultipartFile(it.multipartFile, it.multipartContentType)
-                .addMultipartFileList(it.multipartFileList, it.multipartContentType)
+
+            request.addMultipartParameter(it.multipartParameter)
+
+            it.multipartFile.forEach { (key, value) ->
+                val file = File.createTempFile("fan-upload-temp", ".tmp")
+
+                FileOutputStream(file).use { fos ->
+                    BufferedOutputStream(fos).use { bof ->
+                        IOUtils.copy(value, bof)
+                    }
+                }
+
+                request.addMultipartFile(key, file, it.multipartContentType)
+            }
+
+            it.multipartFileList.forEach { (key, value) ->
+                value.forEach { `is` ->
+                    val file = File.createTempFile("fan-upload-temp", ".tmp")
+
+                    FileOutputStream(file).use { fos ->
+                        BufferedOutputStream(fos).use { bof ->
+                            IOUtils.copy(`is`, bof)
+                        }
+                    }
+
+                    request.addMultipartFile(key, file, it.multipartContentType)
+                }
+            }
 
             it.userAgent?.let { userAgent ->
                 request.setUserAgent(userAgent)
