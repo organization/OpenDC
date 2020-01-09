@@ -3,8 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 ext {
-    geckoviewChannel = "beta"
-    geckoviewVersion = "73.0.20200107212705"
+    geckoviewChannel = ""
+    geckoviewVersion = "72.0.20200107212822"
 }
 
 repositories {
@@ -64,11 +64,11 @@ dependencies {
     implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.3.1'
 
     // GeckoView
-    implementation group: 'org.mozilla.geckoview', name: "geckoview-${geckoviewChannel}", version: "${geckoviewVersion}"
-    //implementation group: 'org.mozilla.geckoview', name: "geckoview-${geckoviewChannel}-x86", version: "${geckoviewVersion}"
-    //implementation group: 'org.mozilla.geckoview', name: "geckoview-${geckoviewChannel}-x86_64", version: "${geckoviewVersion}"
-    //implementation group: 'org.mozilla.geckoview', name: "geckoview-${geckoviewChannel}-armeabi-v7a", version: "${geckoviewVersion}"
-    //implementation group: 'org.mozilla.geckoview', name: "geckoview-${geckoviewChannel}-arm64-v8a", version: "${geckoviewVersion}"
+    implementation group: 'org.mozilla.geckoview', name: "geckoview${geckoviewChannel}", version: "${geckoviewVersion}"
+    //implementation group: 'org.mozilla.geckoview', name: "geckoview${geckoviewChannel}-x86", version: "${geckoviewVersion}"
+    //implementation group: 'org.mozilla.geckoview', name: "geckoview${geckoviewChannel}-x86_64", version: "${geckoviewVersion}"
+    //implementation group: 'org.mozilla.geckoview', name: "geckoview${geckoviewChannel}-armeabi-v7a", version: "${geckoviewVersion}"
+    //implementation group: 'org.mozilla.geckoview', name: "geckoview${geckoviewChannel}-arm64-v8a", version: "${geckoviewVersion}"
 
     implementation group: 'org.apache.commons', name: 'commons-text', version: '1.8'
 

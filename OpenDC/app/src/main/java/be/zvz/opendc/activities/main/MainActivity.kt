@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         totalSearchView = findViewById(R.id.totalSearchView)
         totalSearchView.setOnQueryTextListener(object : MaterialSearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-                return true
+                return false
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
@@ -62,15 +62,24 @@ class MainActivity : AppCompatActivity() {
                 }
 
 
-                return true
+                return false
             }
 
         })
         totalSearchView.setCloseOnTintClick(true)
+        totalSearchView.setSearchViewListener(object : MaterialSearchView.SearchViewListener {
+            override fun onSearchViewOpened() {
+                searchButton.visibility = View.GONE
+            }
+
+            override fun onSearchViewClosed() {
+                searchButton.visibility = View.VISIBLE
+            }
+
+        })
         searchButton = findViewById(R.id.searchButton)
         searchButton.setOnClickListener {
             totalSearchView.openSearch()
-            (it as Button).visibility = View.GONE
         }
 
         val hitListViewAdapter = HitListViewAdapter()
@@ -111,7 +120,6 @@ class MainActivity : AppCompatActivity() {
                 val hit = mainPage.getHit()
 
                 hit.forEach {
-                    Log.d("OpenDC", it.thumbnail)
                     AndroidNetworking
                         .get(it.thumbnail)
                         .setTag("get-hit-thumbnail")
@@ -146,7 +154,6 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if (totalSearchView.isOpen) { // Close the search on the back button press.
             totalSearchView.closeSearch()
-            searchButton.visibility = View.VISIBLE
         } else {
             super.onBackPressed()
         }

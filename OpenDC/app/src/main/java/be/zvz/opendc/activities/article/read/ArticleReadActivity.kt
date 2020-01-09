@@ -68,8 +68,10 @@ class ArticleReadActivity : AppCompatActivity() {
     private fun setUpGeckoView() {
         geckoView = findViewById(R.id.articleReadGeckoView)
 
-        val runtime = GeckoRuntime.create(this)
+        val runtime = GeckoRuntime.getDefault(this) // SIGSEGV!
+
         geckoSession.open(runtime)
+        geckoSession.settings.allowJavascript = true
 
         geckoView.setSession(geckoSession)
     }
