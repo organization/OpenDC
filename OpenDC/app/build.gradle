@@ -3,8 +3,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 ext {
-    geckoviewChannel = "nightly"
-    geckoviewVersion = "71.0.20190918100042"
+    geckoviewChannel = "beta"
+    geckoviewVersion = "73.0.20200107212705"
 }
 
 repositories {
@@ -12,7 +12,10 @@ repositories {
         url "https://maven.mozilla.org/maven2/"
     }
     maven {
-        url "http://jcenter.bintray.com"
+        url "https://jcenter.bintray.com"
+    }
+    maven {
+        url 'https://jitpack.io'
     }
 }
 
@@ -43,7 +46,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation group: 'be.zvz', name: 'KotlinInside', version: '1.7.3'
+    implementation group: 'be.zvz', name: 'KotlinInside', version: '1.7.4'
+
+    implementation 'br.com.mauker.materialsearchview:materialsearchview:1.2.3'
 
     implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: "${kotlin_version}"
 
@@ -56,8 +61,10 @@ dependencies {
     implementation group: 'com.amitshekhar.android', name: 'android-networking', version:'1.0.2'
     //FAN Jackson
     implementation group: 'com.amitshekhar.android', name: 'jackson-android-networking', version:'1.0.2'
-    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.4'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.3.1'
     implementation group: 'org.mozilla.geckoview', name: "geckoview-${geckoviewChannel}", version: "${geckoviewVersion}"
+
+    implementation group: 'org.apache.commons', name: 'commons-text', version: '1.8'
 
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     androidTestImplementation group: 'androidx.test', name: 'runner', version: '1.2.0'

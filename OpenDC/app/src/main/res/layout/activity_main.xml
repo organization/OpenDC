@@ -4,63 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.main.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/appMainText"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="0dp">
+
+            <TextView
+                android:id="@+id/appMainText"
+                android:layout_width="wrap_content"
+                android:layout_height="59dp"
+                android:drawableStart="@drawable/ic_logo_text" />
+
+            <ImageButton
+                android:id="@+id/gallRankButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="150dp"
+                android:background="@null"
+                android:contentDescription="@string/gall_rank_button"
+                android:src="@drawable/ic_rank_24dp" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/searchCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginBottom="0dp"
-            android:text="@string/app_main_text"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            android:typeface="sans"
-            app:fontFamily="sans-serif-thin" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/searchCardView"
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_margin="20dp"
+            app:cardBackgroundColor="@color/colorPrimary"
             app:cardCornerRadius="20dp"
             app:cardUseCompatPadding="true">
 
-            <SearchView
-                android:id="@+id/totalSearchView"
+            <Button
+                android:id="@+id/searchButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:animationCache="true" >
+                android:background="@null"
+                android:drawableStart="@drawable/ic_action_search_white"
+                android:paddingStart="20dp"
+                tools:ignore="RtlSymmetry" />
 
-            </SearchView>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/gallRankCardView"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_margin="20dp"
-            app:cardCornerRadius="20dp"
-            app:cardUseCompatPadding="true">
-
-            <androidx.recyclerview.widget.RecyclerView
+            <br.com.mauker.materialsearchview.MaterialSearchView
+                android:id="@+id/totalSearchView"
+                style="@style/MaterialSearchViewStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:animationCache="true">
+
+            </br.com.mauker.materialsearchview.MaterialSearchView>
         </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:drawableStart="@drawable/ic_hit_gall" />
+
+        <ListView
+            android:id="@+id/hitListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp" />
 
     </LinearLayout>
 

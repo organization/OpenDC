@@ -1,6 +1,5 @@
 package be.zvz.opendc.http
 
-import android.util.Log
 import be.zvz.kotlininside.http.HttpException
 import be.zvz.kotlininside.http.HttpInterface
 import be.zvz.kotlininside.json.JsonBrowser
@@ -59,7 +58,6 @@ class FANHttpInterface : HttpInterface {
 
         if (requestResult.isSuccess) {
             val result = requestResult.result.toString()
-            Log.d("OpenDC", result)
             return JsonBrowser.parse(result)
         } else {
             throw HttpException(requestResult.error)

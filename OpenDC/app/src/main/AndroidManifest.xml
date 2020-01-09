@@ -13,13 +13,21 @@
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
         android:fullBackupContent="@xml/backup_descriptor"
         android:networkSecurityConfig="@xml/network_security_config">
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.article.read.ArticleReadActivity" />
+
+        <provider
+            android:name="br.com.mauker.materialsearchview.db.HistoryProvider"
+            android:authorities="br.com.mauker.materialsearchview.searchhistorydatabase"
+            android:exported="false"
+            android:protectionLevel="signature"
+            android:syncable="true" />
     </application>
 
 </manifest>
