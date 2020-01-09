@@ -1,5 +1,6 @@
 package be.zvz.opendc.activities.article.read
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
@@ -17,6 +18,7 @@ class ArticleReadActivity : AppCompatActivity() {
     private lateinit var geckoView: GeckoView
     private val geckoSession = GeckoSession()
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article_read)
@@ -28,8 +30,6 @@ class ArticleReadActivity : AppCompatActivity() {
         val timestampTextView = findViewById<TextView>(R.id.articleReadTimestamp)
         val hitTextView = findViewById<TextView>(R.id.articleReadHit)
         val commentCount = findViewById<TextView>(R.id.articleReadCommentCount)
-
-        setUpGeckoView()
 
         val intent = Intent(this.intent)
         val gallId = intent.getStringExtra("gall_id")!!
@@ -48,21 +48,20 @@ class ArticleReadActivity : AppCompatActivity() {
         val viewInfo = articleRead.getViewInfo()
         val viewMain = articleRead.getViewMain()
 
-        if (viewInfo.headTitle !== null) {
-            headTextView.text = viewInfo.headTitle
-        } else {
-            headTextView.text = ""
-        }
-
+        headTextView.text = viewInfo.headTitle
         titleTextView.text = viewInfo.subject
         nameTextView.text = viewInfo.name
-        ipTextView.text = viewInfo.ip
+        if (viewInfo.ip.isNotEmpty())
+            ipTextView.text = " (${viewInfo.ip})"
+        else
+            ipTextView.text = ""
         timestampTextView.text = viewInfo.dateTime
-        hitTextView.text = viewInfo.views.toString()
-        commentCount.text = viewInfo.totalComment.toString()
+        hitTextView.text = "조회: ${viewInfo.views}"
+        commentCount.text = "댓글: ${viewInfo.totalComment}"
 
         val html = StringEscapeUtils.unescapeHtml4(viewMain.content)
 
+        setUpGeckoView()
         geckoSession.loadString(html, "text/html")
     }
 
