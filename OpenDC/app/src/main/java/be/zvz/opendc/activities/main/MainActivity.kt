@@ -9,6 +9,8 @@ import android.view.View
 import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import be.zvz.kotlininside.KotlinInside
 import be.zvz.kotlininside.api.generic.GallerySearch
 import be.zvz.kotlininside.api.generic.MainPage
@@ -82,17 +84,10 @@ class MainActivity : AppCompatActivity() {
             totalSearchView.openSearch()
         }
 
-        val hitListViewAdapter = HitListViewAdapter()
-        val hitListView = findViewById<ListView>(R.id.hitListView)
-        hitListView.adapter = hitListViewAdapter
-        hitListView.setOnItemClickListener { _, _, position, _ ->
-            val articleId = hitListViewAdapter.itemList[position].id
-
-            val intent = Intent(this@MainActivity, ArticleReadActivity::class.java)
-                .putExtra("gall_id", "hit")
-                .putExtra("article_id", articleId)
-            startActivity(intent)
-        }
+        val hitRecyclerViewAdapter = HitRecyclerViewAdapter(this)
+        val hitRecyclerView = findViewById<RecyclerView>(R.id.hitRecyclerView)
+        hitRecyclerView.adapter = hitRecyclerViewAdapter
+        hitRecyclerView.layoutManager = GridLayoutManager(this, 2)
 
         val cacheSize: Long = 50 * 1024 * 1024 // 50MB
 
@@ -128,12 +123,12 @@ class MainActivity : AppCompatActivity() {
                         .getAsBitmap(object : BitmapRequestListener {
                             override fun onResponse(response: Bitmap) {
                                 runOnUiThread {
-                                    hitListViewAdapter.addItem(
+                                    hitRecyclerViewAdapter.addItem(
                                         image = BitmapDrawable(resources, response),
                                         title = it.title,
                                         id = it.articleId
                                     )
-                                    hitListViewAdapter.notifyDataSetChanged()
+                                    hitRecyclerViewAdapter.notifyDataSetChanged()
                                 }
                             }
 
