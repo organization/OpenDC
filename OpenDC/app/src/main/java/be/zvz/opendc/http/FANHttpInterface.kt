@@ -4,7 +4,7 @@ import be.zvz.kotlininside.http.HttpException
 import be.zvz.kotlininside.http.HttpInterface
 import be.zvz.kotlininside.json.JsonBrowser
 import com.androidnetworking.AndroidNetworking
-import org.mozilla.gecko.util.IOUtils
+import org.apache.commons.io.IOUtils
 import java.io.BufferedOutputStream
 import java.io.File
 import java.io.FileOutputStream
