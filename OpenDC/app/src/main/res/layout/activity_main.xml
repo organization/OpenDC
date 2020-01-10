@@ -6,84 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".activities.main.MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/appMainText"
+        android:layout_width="wrap_content"
+        android:layout_height="59dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:drawableStart="@drawable/ic_logo_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="0dp">
+    <ImageButton
+        android:id="@+id/gallRankButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        android:contentDescription="@string/gall_rank_button"
+        android:src="@drawable/ic_rank_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/appMainText"
-                android:layout_width="wrap_content"
-                android:layout_height="59dp"
-                android:drawableStart="@drawable/ic_logo_text" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/searchCardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appMainText">
 
-            <ImageButton
-                android:id="@+id/gallRankButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="150dp"
-                android:background="@null"
-                android:contentDescription="@string/gall_rank_button"
-                android:src="@drawable/ic_rank_24dp" />
-        </LinearLayout>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/searchCardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            app:cardBackgroundColor="@color/colorPrimary"
-            app:cardCornerRadius="10dp"
-            app:cardUseCompatPadding="true">
-
-            <Button
-                android:id="@+id/searchButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:drawableEnd="@drawable/ic_action_search_white"
-                android:paddingEnd="20dp"
-                tools:ignore="RtlSymmetry" />
-
-            <br.com.mauker.materialsearchview.MaterialSearchView
-                android:id="@+id/totalSearchView"
-                style="@style/MaterialSearchViewStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:animationCache="true">
-
-            </br.com.mauker.materialsearchview.MaterialSearchView>
-        </androidx.cardview.widget.CardView>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="10dp"
-            android:drawableStart="@drawable/ic_hit_gall" />
-
-        <ListView
-            android:id="@+id/hitListView"
+        <Button
+            android:id="@+id/searchButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:divider="@null" />
+            android:background="@null"
+            android:drawableEnd="@drawable/ic_action_search_white"
+            android:paddingEnd="20dp"
+            tools:ignore="RtlSymmetry" />
 
-    </LinearLayout>
+        <br.com.mauker.materialsearchview.MaterialSearchView
+            android:id="@+id/totalSearchView"
+            style="@style/MaterialSearchViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animationCache="true">
+
+        </br.com.mauker.materialsearchview.MaterialSearchView>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:drawableStart="@drawable/ic_hit_gall"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchCardView" />
+
+    <ListView
+        android:id="@+id/hitListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:divider="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
