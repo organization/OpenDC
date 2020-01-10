@@ -55,7 +55,7 @@ class ArticleReadActivity : AppCompatActivity() {
         commentCount.text = "댓글: ${viewInfo.totalComment}"
 
         var html = StringEscapeUtils.unescapeHtml4(viewMain.content)
-        //html = "<!doctype html><html>$html</html>"
+        html = "<style>img{display: inline;height: auto;max-width: 100%;}</style>$html"
 
         val webViewSuite = findViewById<WebViewSuite>(R.id.articleReadWebViewSuite)
         webViewSuite.startLoadData(html, "text/html", "utf-8")
