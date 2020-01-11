@@ -32,6 +32,7 @@ class HitRecyclerViewAdapter(ctx: Context) : RecyclerView.Adapter<HitRecyclerVie
 
         holder.imageView.setImageDrawable(item.imageDrawable)
         holder.titleTextView.text = item.title
+        holder.titleTextView.isSelected = true
 
         holder.parent.setOnClickListener {
             val articleId = itemList[position].id

@@ -3,6 +3,8 @@ package be.zvz.opendc.activities.article.read
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import be.zvz.kotlininside.KotlinInside
@@ -25,6 +27,7 @@ class ArticleReadActivity : AppCompatActivity() {
         val timestampTextView = findViewById<TextView>(R.id.articleReadTimestamp)
         val hitTextView = findViewById<TextView>(R.id.articleReadHit)
         val commentCount = findViewById<TextView>(R.id.articleReadCommentCount)
+        val imageView = findViewById<ImageView>(R.id.articleReadImage)
 
         val intent = Intent(this.intent)
         val gallId = intent.getStringExtra("gall_id")!!
@@ -46,10 +49,15 @@ class ArticleReadActivity : AppCompatActivity() {
         headTextView.text = viewInfo.headTitle
         titleTextView.text = viewInfo.subject
         nameTextView.text = viewInfo.name
-        if (viewInfo.ip.isNotEmpty())
+
+        titleTextView.isSelected = true
+
+        if (viewInfo.ip.isNotEmpty()) {
             ipTextView.text = " (${viewInfo.ip})"
-        else
-            ipTextView.text = ""
+            imageView.visibility = View.GONE
+        } else
+            ipTextView.visibility = View.GONE
+
         timestampTextView.text = viewInfo.dateTime
         hitTextView.text = "조회: ${viewInfo.views}"
         commentCount.text = "댓글: ${viewInfo.totalComment}"
