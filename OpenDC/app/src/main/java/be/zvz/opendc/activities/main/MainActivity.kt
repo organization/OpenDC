@@ -1,13 +1,11 @@
 package be.zvz.opendc.activities.main
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +14,6 @@ import be.zvz.kotlininside.api.generic.GallerySearch
 import be.zvz.kotlininside.api.generic.MainPage
 import be.zvz.kotlininside.session.user.Anonymous
 import be.zvz.opendc.R
-import be.zvz.opendc.activities.article.read.ArticleReadActivity
 import be.zvz.opendc.http.FANHttpInterface
 import br.com.mauker.materialsearchview.MaterialSearchView
 import com.androidnetworking.AndroidNetworking
@@ -26,6 +23,8 @@ import com.androidnetworking.interfaces.BitmapRequestListener
 import com.jacksonandroidnetworking.JacksonParserFactory
 import okhttp3.Cache
 import okhttp3.OkHttpClient
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.uiThread
 import kotlin.concurrent.thread
 
 
@@ -105,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         val httpClient = FANHttpInterface()
 
 
-        thread(name = "init-kotlininside") {
+        doAsync {
             try {
                 KotlinInside.createInstance(Anonymous("ㅇㅇ", "1234"), httpClient)
 
@@ -122,7 +121,7 @@ class MainActivity : AppCompatActivity() {
                         .build()
                         .getAsBitmap(object : BitmapRequestListener {
                             override fun onResponse(response: Bitmap) {
-                                runOnUiThread {
+                                uiThread { _ ->
                                     hitRecyclerViewAdapter.addItem(
                                         image = BitmapDrawable(resources, response),
                                         title = it.title,

@@ -3,4 +3,6 @@
     <string name="app_main_text">OpenDC</string>
     <string name="hit_thumbnail">HIT갤 썸네일</string>
     <string name="gall_rank_button">실북갤 버튼</string>
+    <string name="article_read_hit">조회:</string>
+    <string name="article_read_comment">댓글:</string>
 </resources>

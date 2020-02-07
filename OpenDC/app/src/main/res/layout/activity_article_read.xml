@@ -46,7 +46,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <EditText
-                    android:id="@+id/editText3"
+                    android:id="@+id/articleCommentEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="0dp"
@@ -66,7 +66,6 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
@@ -80,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
                 android:id="@+id/articleReadCommentCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,9 +88,10 @@
                 android:layout_weight="1"
                 android:text="댓글수"
                 app:layout_constraintEnd_toStartOf="@+id/articleReadHit"
-                app:layout_constraintTop_toBottomOf="@+id/articleReadTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/articleReadTitle"
+                app:use_gradient="true" />
 
-            <TextView
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
                 android:id="@+id/articleReadHeadText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,9 +101,10 @@
                 android:text="말머리"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:use_gradient="true" />
 
-            <TextView
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
                 android:id="@+id/articleReadHit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,9 +113,10 @@
                 android:layout_weight="1"
                 android:text="조회수"
                 app:layout_constraintEnd_toStartOf="@+id/articleReadTimestamp"
-                app:layout_constraintTop_toBottomOf="@+id/articleReadTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/articleReadTitle"
+                app:use_gradient="true" />
 
-            <TextView
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
                 android:id="@+id/articleReadTimestamp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -125,9 +127,10 @@
                 android:text="글 작성 시간"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/articleReadTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/articleReadTitle"
+                app:use_gradient="true" />
 
-            <TextView
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
                 android:id="@+id/articleReadIp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -136,9 +139,10 @@
                 android:layout_weight="1"
                 android:text="IP"
                 app:layout_constraintStart_toEndOf="@+id/articleReadImage"
-                app:layout_constraintTop_toBottomOf="@+id/articleReadTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/articleReadTitle"
+                app:use_gradient="true" />
 
-            <TextView
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
                 android:id="@+id/articleReadName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,9 +151,10 @@
                 android:layout_weight="1"
                 android:text="이름"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/articleReadTitle" />
+                app:layout_constraintTop_toBottomOf="@+id/articleReadTitle"
+                app:use_gradient="true" />
 
-            <TextView
+            <com.elyeproj.loaderviewlibrary.LoaderTextView
                 android:id="@+id/articleReadTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -165,9 +170,10 @@
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/articleReadHeadText"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:use_gradient="true" />
 
-            <ImageView
+            <com.elyeproj.loaderviewlibrary.LoaderImageView
                 android:id="@+id/articleReadImage"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
@@ -175,6 +181,7 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toEndOf="@+id/articleReadName"
                 app:layout_constraintTop_toBottomOf="@+id/articleReadTitle"
+                app:use_gradient="true"
                 tools:srcCompat="@tools:sample/avatars" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -182,7 +189,6 @@
     </androidx.cardview.widget.CardView>
 
     <ScrollView
-        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -191,7 +197,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
