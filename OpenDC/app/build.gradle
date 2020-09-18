@@ -78,7 +78,7 @@ dependencies {
     implementation group: 'com.asksira.android', name: 'webviewsuite', version: '1.0.3'
 
     // Apache
-    implementation group: 'org.apache.commons', name: 'commons-text', version: '1.8'
+    implementation group: 'org.apache.commons', name: 'commons-text', version: '1.9'
     implementation group: 'commons-io', name: 'commons-io', version: '2.7'
 
     // Android
