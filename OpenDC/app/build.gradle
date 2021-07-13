@@ -79,7 +79,7 @@ dependencies {
 
     // Apache
     implementation group: 'org.apache.commons', name: 'commons-text', version: '1.9'
-    implementation group: 'commons-io', name: 'commons-io', version: '2.10.0'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
 
     // Android
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
