@@ -46,7 +46,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation group: 'be.zvz', name: 'KotlinInside', version: '1.13.1'
+    implementation group: 'be.zvz', name: 'KotlinInside', version: '1.14.1'
 
     implementation 'br.com.mauker.materialsearchview:materialsearchview:1.2.3'
 
