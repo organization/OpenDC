@@ -65,7 +65,7 @@ dependencies {
     // FAN Jackson
     implementation group: 'com.amitshekhar.android', name: 'jackson-android-networking', version:'1.0.2'
     // OkHttp
-    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.9.3'
+    implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.10.0'
 
     // GeckoView
     //implementation group: 'org.mozilla.geckoview', name: "geckoview${geckoviewChannel}", version: "${geckoviewVersion}"
