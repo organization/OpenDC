@@ -85,7 +85,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     testImplementation group: 'junit', name: 'junit', version: '4.13.2'
-    androidTestImplementation group: 'androidx.test', name: 'runner', version: '1.5.1'
+    androidTestImplementation group: 'androidx.test', name: 'runner', version: '1.5.2'
     androidTestImplementation group: 'androidx.test.espresso', name: 'espresso-core', version: '3.5.0'
 
     // ANKO
