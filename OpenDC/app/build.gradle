@@ -52,7 +52,7 @@ dependencies {
 
     implementation group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jdk7', version: "${kotlin_version}"
 
-    implementation group: 'androidx.appcompat', name: 'appcompat', version: '1.5.1'
+    implementation group: 'androidx.appcompat', name: 'appcompat', version: '1.6.1'
     implementation group: 'androidx.core', name: 'core-ktx', version: '1.9.0'
     implementation group: 'androidx.cardview', name: 'cardview', version:'1.0.0'
     implementation group: 'androidx.constraintlayout', name: 'constraintlayout', version: '2.1.4'
